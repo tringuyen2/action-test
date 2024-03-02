@@ -39,6 +39,6 @@ if __name__ == "__main__":
         temperature = soup.find('div', class_='h1').text.strip()
         
         logger.info(f"Weather in {city}: {weather_container}")
-        logger.info(f"Temperature: {temperature}")
+        # logger.info(f"Temperature: {temperature}")
     else:
         logger.info("Failed to fetch weather data.")
