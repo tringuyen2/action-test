@@ -3,6 +3,8 @@ import logging.handlers
 import os
 
 import requests
+from bs4 import BeautifulSoup
+
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -27,8 +29,16 @@ except KeyError:
 if __name__ == "__main__":
     logger.info(f"Token value: {SOME_SECRET}")
 
-    r = requests.get('https://weather.talkpython.fm/api/weather/?city=Berlin&country=DE')
+    city = "Vietnam/Hanoi"
+    url = f'https://www.timeanddate.com/weather/{city}'
+    r = requests.get(url)
+    print(r)
     if r.status_code == 200:
-        data = r.json()
-        temperature = data["forecast"]["temp"]
-        logger.info(f'Weather in Berlin: {temperature}')
+        soup = BeautifulSoup(r.content, 'html.parser')
+        weather_container = soup.find('div', class_='h2').text
+        temperature = soup.find('div', class_='h1').text.strip()
+        
+        logger.info(f"Weather in {city}: {weather_container}")
+        logger.info(f"Temperature: {temperature}")
+    else:
+        logger.info("Failed to fetch weather data.")
