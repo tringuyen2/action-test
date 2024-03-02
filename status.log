@@ -19,3 +19,6 @@
 2024-03-02 08:38:41,441 - __main__ - INFO - Token value: 1234
 2024-03-02 08:38:41,800 - __main__ - INFO - Weather in Vietnam/Hanoi: 63 °F
 2024-03-02 08:38:41,800 - __main__ - INFO - Temperature: Now
+2024-03-02 15:29:59,254 - __main__ - INFO - Token value: Token not available!
+2024-03-02 15:29:59,744 - __main__ - INFO - Weather in Vietnam/Hanoi: 17 °C
+2024-03-02 15:29:59,745 - __main__ - INFO - Temperature: Now
